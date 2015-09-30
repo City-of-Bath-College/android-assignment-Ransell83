@@ -1,0 +1,56 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#4D5053"
+    >
+
+    <TextView
+        android:id="@+id/question"
+        android:text="Is the capital of England London?"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="22sp"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/btnTrue"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/question"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="20dp"
+        android:text="TRUE"
+        android:textSize="24sp"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnFalse"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/question"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:text="FALSE"
+        android:textSize="24sp"
+        android:padding="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgFlag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/unitedkingdom"
+        android:scaleType="centerCrop"
+        android:layout_above="@id/question"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        />
+
+</RelativeLayout>
