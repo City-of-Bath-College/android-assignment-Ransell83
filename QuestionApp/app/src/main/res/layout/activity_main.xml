@@ -53,4 +53,16 @@
         android:layout_margin="30dp"
         />
 
+    <TextView
+        android:id="@+id/scoreInGame"
+        android:text="Score = 0"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/btnFalse"
+        android:textSize="22sp"
+        android:gravity="center"
+        />
+
 </RelativeLayout>

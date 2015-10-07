@@ -1,7 +1,10 @@
 package questionapp.richard.dev.com.questionapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
     private int index;
+    private int score;
+    private TextView scoreInGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnTrue = (Button)findViewById(R.id.btnTrue);
         btnFalse = (Button)findViewById(R.id.btnFalse);
         imgFlag = (ImageView)findViewById(R.id.imgFlag);
+        scoreInGame = (TextView)findViewById(R.id.scoreInGame);
 
         // Set questions for country flags
         question.setText("Is London the capital of England?");
@@ -41,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         imgFlag.setImageResource(R.drawable.unitedkingdom);
 
         index = 0;
+        score = 0;
 
         // On click listener
         btnTrue.setOnClickListener(new View.OnClickListener() {
@@ -91,11 +98,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpQuestion(){
-        currentQuestion = questions.get(index);
-        question.setText(currentQuestion.getQuestion());
-        imgFlag.setImageResource(currentQuestion.getPicture());
-
-        index++;
+        if(index == questions.size()){
+            // All questions have been answered
+            Log.d("RICHARD_APP", "All questions answered");
+            endGame();
+        }else{
+            // Set up normal question
+            currentQuestion = questions.get(index);
+            question.setText(currentQuestion.getQuestion());
+            imgFlag.setImageResource(currentQuestion.getPicture());
+            index++;
+        }
     }
 
     private void determineButtonPress(boolean answer){
@@ -103,9 +116,23 @@ public class MainActivity extends AppCompatActivity {
         if (answer == expectedAnswer) {
             // Correct!
             Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            score++;
+            scoreInGame.setText("Your score so far is " + score);
         } else {
             Toast.makeText(MainActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
         }
         setUpQuestion();
+    }
+
+    private void endGame(){
+        final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Congratulations")
+                .setMessage("You scored " + score + " points this round!")
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .create();
+        alertDialog.show();
     }
 }
