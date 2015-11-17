@@ -1,0 +1,95 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroductionActivity"
+    android:background="#4D5053"
+    >
+
+    <ImageView
+        android:id="@+id/imgSpaceRocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/spacerocket"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        />
+
+    <TextView
+        android:id="@+id/introductionText"
+        android:text="Welcome to Richard's Questionnaire App"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/imgSpaceRocket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/highestScore"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/introductionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/highestScore"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Play!"
+        android:textSize="24sp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnHighScore"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btnPlay"
+        android:layout_centerHorizontal="true"
+        android:text="High Scores"
+        android:textSize="24sp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btnHighScore"
+        android:layout_centerHorizontal="true"
+        android:text="About"
+        android:textSize="24sp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btnAbout"
+        android:layout_centerHorizontal="true"
+        android:text="Clear High Scores"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        />
+
+</RelativeLayout>

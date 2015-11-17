@@ -22,4 +22,5 @@ public class QuestionObject {
     public int getPicture(){
         return picture;
     }
+
 }

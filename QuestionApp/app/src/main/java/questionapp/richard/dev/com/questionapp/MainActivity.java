@@ -4,17 +4,22 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 import java.util.Random;
+
+import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private int index;
     private int score;
     private TextView scoreInGame;
+    private String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateQuestions();
         setUpQuestion();
+        Paper.init(this);
     }
 
     private void generateQuestions(){
@@ -94,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         questions.add(new QuestionObject("Is Seoul the capital of South Korea?", true, R.drawable.southkorea));
         questions.add(new QuestionObject("Is Ottawa the capital of Spain?", false, R.drawable.spain));
         questions.add(new QuestionObject("Is Munich the capital of Sweden?", false, R.drawable.sweden));
-        questions.add(new QuestionObject("Is London the capital of England?", true, R.drawable.unitedkingdom));
     }
 
     private void setUpQuestion(){
@@ -125,14 +131,56 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void endGame(){
-        final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Congratulations")
-                .setMessage("You scored " + score + " points this round!")
-                .setNeutralButton("Ok", new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                })
-                .create();
-        alertDialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Congratulations!");
+        builder.setMessage("You scored " + score + " points this round." + "\n\n" + "Please enter your name.");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+
+        // Specify the type of input expected
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                name = input.getText().toString();
+
+                // New high score and user name
+                HighScoreObject highScore = new HighScoreObject(score, name, new Date().getTime());
+
+                // Get user prefs
+                List<HighScoreObject> highScores = Paper.book().read("High scores", new ArrayList<HighScoreObject>());
+
+                // Add item - scores
+                highScores.add(highScore);
+
+                // Save again
+                Paper.book().write("High scores", highScores);
+
+                // Return back to the introduction screen
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+                // Return back to the introduction screen
+                finish();
+            }
+        });
+        builder.show();
     }
 }
+
+// Sample Lifecycle start and stop points
+
+/* @Override
+protected void onStop(){
+	super.onStop();
+        Log.d("RICHARD_APP", "Reached onStop");
+} */

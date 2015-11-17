@@ -55,7 +55,6 @@
 
     <TextView
         android:id="@+id/scoreInGame"
-        android:text="Score = 0"
         android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
