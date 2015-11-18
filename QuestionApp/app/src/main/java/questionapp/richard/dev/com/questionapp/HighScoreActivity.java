@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar; // 3) Interactive alternative to Toast messages
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar; // 5) For using a toolbar within the application
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup; // 7) Allows for other views named 'children'
 import android.widget.ArrayAdapter; // 8) Handles a collection of data to return each item within the collection as a view
@@ -71,9 +72,16 @@ public class HighScoreActivity extends AppCompatActivity { // 18) New publicly a
 
             SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
 
-            TextView lblTitle = (TextView)convertView.findViewById(R.id.lblTitle);
+            TextView lblScore = (TextView)convertView.findViewById(R.id.lblScore);
+            TextView lblName = (TextView)convertView.findViewById(R.id.lblName);
+            TextView lblDate = (TextView)convertView.findViewById(R.id.lblDate);
 
-            lblTitle.setText(highScore.getScore() + " - " + highScore.getName() + " - " + fmtOut.format(date));
+            // lblScore.setText(highScore.getScore() + " - " + highScore.getName() + " - " + fmtOut.format(date));
+
+            Log.d("tag", "showing high score number = " + position);
+            lblScore.setText(Integer.toString(highScore.getScore()));
+            lblName.setText(highScore.getName());
+            lblDate.setText(fmtOut.format(date));
 
             return convertView;
         } // end get view

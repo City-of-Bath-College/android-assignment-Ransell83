@@ -6,13 +6,41 @@
     android:layout_height="match_parent"
     android:background="#4D5053">
 
-    <TextView
-        android:id="@+id/lblTitle"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:padding="10dp"
-        android:text="1 - Richard - 1st Nov 2015" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/lblScore"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:text="SCORE" />
+
+        <TextView
+            android:id="@+id/lblName"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:text="NAME"
+            android:layout_toRightOf="@id/lblScore" />
+
+        <TextView
+            android:id="@+id/lblDate"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:text="DATE"
+            android:layout_toRightOf="@id/lblName"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
