@@ -23,5 +23,6 @@ To test students knowledge of capitals across the globe
 * Displays progress status throughout questionnaire
 * Provides sound and vibration effects that can be controlled within the questionnaire
 * Allows user to view all high scores in a simple list view with option to delete high scores
+* All high scores are sorted in descending order to display the top score first
 * About me page
 * Send feedback facility incorporated throughout application
