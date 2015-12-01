@@ -26,3 +26,6 @@ To test students knowledge of capitals across the globe
 * All high scores are sorted in descending order to display the top score first
 * About me page
 * Send feedback facility incorporated throughout application
+* 
+# Screenshots
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/1-Home-Screen.png?raw=true "Home Screen")
