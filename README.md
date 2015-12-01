@@ -16,7 +16,7 @@ QuestionApp
 # Application Purpose
 To test students knowledge of capitals across the globe
 # Application Specifics
-* Simple three screen application with material design incorporated into the design
+* Simple three-screen application with material design incorporated into the design
 * Adheres to HCI principles throughout application, I.e. back to home screen arrow where feasible
 * Utilises external database (Firebase) to retrieve question information: questions, answers and images
 * Questions can easily be changed on Firebase for future changes
