@@ -1,11 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#4D5053">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for all high scores to be displayed to the screen -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/windowBackground">
 
-    <ListView
-        android:id="@+id/listView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <!-- Include tool_bar on screen -->
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            ></include>
+
+        <!-- Display ListView including custom styling where appropriate -->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:divider="#E2E2E2"
+            android:dividerHeight="5dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

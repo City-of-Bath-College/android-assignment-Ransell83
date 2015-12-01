@@ -1,141 +1,156 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EEEEEE"
-    tools:context="profilecard.richard.dev.com.profilecard.ProfileActivity">
+<!-- Displays about me page -->
+<!-- Scroll view to allow user to scroll if content is too big for screen -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/windowBackground">
 
-    <!-- Desk -->
-    <ImageView
-        android:id="@+id/imgDesk"
-        android:src="@drawable/desk"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground">
 
-    <!-- Photo -->
-    <ImageView
-        android:id="@+id/photo"
-        android:src="@drawable/photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="25dp"
-        />
+        <!-- Include tool_bar on screen -->
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            ></include>
 
-    <!-- Name -->
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Richard Ansell"
-        android:textSize="30sp"
-        android:layout_below="@id/imgDesk"
-        android:paddingTop="40dp"
-        android:paddingBottom="10dp"
-        android:layout_marginLeft="140dp"
-        android:textColor="#212121"
-        />
+        <!-- Desk -->
+        <ImageView
+            android:id="@+id/imgDesk"
+            android:src="@drawable/desk"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/tool_bar"
+            android:scaleType="centerCrop"
+            />
 
-    <!-- Location -->
-    <ImageView
-        android:id="@+id/location"
-        android:src="@drawable/location"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/name"
-        android:layout_marginLeft="10dp"
-        />
+        <!-- Photo -->
+        <ImageView
+            android:id="@+id/photo"
+            android:src="@drawable/photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="25dp"
+            />
 
-    <!-- Location text -->
-    <TextView
-        android:id="@+id/locationText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bath, England"
-        android:textSize="25sp"
-        android:layout_toRightOf="@+id/location"
-        android:paddingLeft="15dp"
-        android:layout_alignTop="@id/location"
-        android:layout_alignBottom="@id/location"
-        android:gravity="center_vertical"
-        android:textColor="#212121"
-        />
+        <!-- Name -->
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Richard Ansell"
+            android:textSize="30sp"
+            android:layout_below="@id/imgDesk"
+            android:paddingTop="40dp"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="140dp"
+            android:textColor="#212121"
+            />
 
-    <!-- GitHub -->
-    <ImageView
-        android:id="@+id/imggithubicon"
-        android:src="@drawable/githubicon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/location"
-        android:layout_marginLeft="15dp"
-        />
+        <!-- Location -->
+        <ImageView
+            android:id="@+id/location"
+            android:src="@drawable/location"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/name"
+            android:layout_marginLeft="10dp"
+            />
 
-    <!-- GitHub text -->
-    <TextView
-        android:id="@+id/githubIconText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ransell83"
-        android:textSize="25sp"
-        android:layout_toRightOf="@+id/imggithubicon"
-        android:paddingLeft="20dp"
-        android:layout_alignTop="@id/imggithubicon"
-        android:layout_alignBottom="@id/imggithubicon"
-        android:gravity="center_vertical"
-        android:textColor="#212121"
-        />
+        <!-- Location text -->
+        <TextView
+            android:id="@+id/locationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bath, England"
+            android:textSize="25sp"
+            android:layout_toRightOf="@+id/location"
+            android:paddingLeft="15dp"
+            android:layout_alignTop="@id/location"
+            android:layout_alignBottom="@id/location"
+            android:gravity="center_vertical"
+            android:textColor="#212121"
+            />
 
-    <!-- Cake -->
-    <ImageView
-        android:id="@+id/cake"
-        android:src="@drawable/cake"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/imggithubicon"
-        android:layout_marginLeft="10dp"
-        />
+        <!-- GitHub -->
+        <ImageView
+            android:id="@+id/imggithubicon"
+            android:src="@drawable/githubicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="15dp"
+            />
 
-    <!-- Cake text -->
-    <TextView
-        android:id="@+id/cakeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="29th December"
-        android:textSize="25sp"
-        android:layout_toRightOf="@+id/cake"
-        android:paddingLeft="15dp"
-        android:layout_alignTop="@id/cake"
-        android:layout_alignBottom="@id/cake"
-        android:gravity="center_vertical"
-        android:textColor="#212121"
-        />
+        <!-- GitHub text -->
+        <TextView
+            android:id="@+id/githubIconText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ransell83"
+            android:textSize="25sp"
+            android:layout_toRightOf="@+id/imggithubicon"
+            android:paddingLeft="20dp"
+            android:layout_alignTop="@id/imggithubicon"
+            android:layout_alignBottom="@id/imggithubicon"
+            android:gravity="center_vertical"
+            android:textColor="#212121"
+            />
 
-    <!-- Web -->
-    <ImageView
-        android:id="@+id/web"
-        android:src="@drawable/web"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/cake"
-        android:layout_marginLeft="10dp"
-        />
+        <!-- Cake -->
+        <ImageView
+            android:id="@+id/cake"
+            android:src="@drawable/cake"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/imggithubicon"
+            android:layout_marginLeft="10dp"
+            />
 
-    <!-- Web text -->
-    <TextView
-        android:id="@+id/webText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="richard-ansell.com"
-        android:textSize="25sp"
-        android:layout_toRightOf="@+id/web"
-        android:paddingLeft="15dp"
-        android:layout_alignTop="@id/web"
-        android:layout_alignBottom="@id/web"
-        android:gravity="center_vertical"
-        android:textColor="#212121"
-        android:autoLink="web"
-        />
+        <!-- Cake text -->
+        <TextView
+            android:id="@+id/cakeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="29th December"
+            android:textSize="25sp"
+            android:layout_toRightOf="@+id/cake"
+            android:paddingLeft="15dp"
+            android:layout_alignTop="@id/cake"
+            android:layout_alignBottom="@id/cake"
+            android:gravity="center_vertical"
+            android:textColor="#212121"
+            />
 
-</RelativeLayout>
+        <!-- Web -->
+        <ImageView
+            android:id="@+id/web"
+            android:src="@drawable/web"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/cake"
+            android:layout_marginLeft="10dp"
+            />
+
+        <!-- Web text -->
+        <TextView
+            android:id="@+id/webText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="richard-ansell.com"
+            android:textSize="25sp"
+            android:layout_toRightOf="@+id/web"
+            android:paddingLeft="15dp"
+            android:layout_alignTop="@id/web"
+            android:layout_alignBottom="@id/web"
+            android:gravity="center_vertical"
+            android:textColor="#212121"
+            android:autoLink="web"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

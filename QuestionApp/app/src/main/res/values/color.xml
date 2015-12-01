@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Specifies colours to be used in application where called upon for easier major colour changes -->
+<resources>
+    <color name="ColorPrimary">#3F51B5</color>
+    <color name="ColorPrimaryDark">#303F94</color>
+    <color name="textColorPrimary">#000</color>
+    <color name="windowBackground">#FFFFFF</color>
+</resources>

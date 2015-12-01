@@ -1,0 +1,11 @@
+<!-- Custom menu for use in application -->
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/sendFeedback"
+        android:title="Send Feedback"
+        app:showAsAction="ifRoom"/>
+
+</menu>

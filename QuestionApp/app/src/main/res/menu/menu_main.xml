@@ -1,6 +1,27 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+<!-- Custom menu for use in application -->
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/soundOn"
+        android:title="Sound ON"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/soundOff"
+        android:title="Sound OFF"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/vibrationON"
+        android:title="Vibration effects ON"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/vibrationOFF"
+        android:title="Vibration effects OFF"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/sendFeedback"
+        android:title="Send Feedback"
+        app:showAsAction="ifRoom"/>
+
 </menu>
