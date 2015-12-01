@@ -26,6 +26,14 @@ To test students knowledge of capitals across the globe
 * All high scores are sorted in descending order to display the top score first
 * About me page
 * Send feedback facility incorporated throughout application
-* 
+
 # Screenshots
 ![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/1-Home-Screen.png?raw=true "Home Screen")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/2-High-Scores.png?raw=true "High Scores Screen")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/3-About-Me-Screen.png?raw=true "About Me Screen")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/4-Question-Screen.png?raw=true "Question Screen")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/5-Question-Screen-Progress-Bar.png?raw=true "Question Screen - Progress Bar")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/6-Question-Screen-Controls.png?raw=true "Question Screen Controls")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/7-Home-Screen-With-High-Score.png?raw=true "Home Screen - With High Score")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/8-High-Score-Delete-High-Scores.png?raw=true "High Score - Delete High Scores")
+![Alt text](https://github.com/City-of-Bath-College/android-assignment-Ransell83/blob/master/Screenshots/9-High-Scores-User-Prompt-to-Delete-High-Scores.png?raw=true "High Score - User Prompt to Delete High Scores")
