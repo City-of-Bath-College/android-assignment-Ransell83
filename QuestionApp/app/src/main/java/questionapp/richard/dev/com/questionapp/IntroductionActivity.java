@@ -132,8 +132,14 @@ public class IntroductionActivity extends AppCompatActivity {
         // Find highestScore XML id and set value equal to highestScoreText TextView
         TextView highestScoreText = (TextView) findViewById(R.id.highestScore);
 
-        // Change text of highestScoreText TextView and display highest score
-        highestScoreText.setText("Current high score is: " + maxScore);
+        // Display current highest score if available
+        if (maxScore == 0) { // Determine if there is a score above zero
+            highestScoreText.setText(""); // Display no text if maxScore is equal to zero
+        } else {
+            // Change text of highestScoreText TextView and display highest score
+            highestScoreText.setText("Current high score is: " + maxScore);
+        }
+
     }
 
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Custom loading animation applied to loaderImage PNG -->
+<!-- Despite the error message present, the application still runs and is in place due to
+the non-support of animation of a drawable file type as a placeholder in the Picasso image loader-->
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/spinner"
+    android:pivotX="50%"
+    android:pivotY="50%" />

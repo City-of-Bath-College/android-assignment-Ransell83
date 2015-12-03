@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,6 @@ import java.util.Date;
 import java.util.List;
 
 import io.paperdb.Paper;
-import pl.droidsonroids.gif.GifImageView;
 
 // ************************************************************************************************
 // The following class sets up the main activity for the questions to be displayed to the screen
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView question;
     private Button btnTrue;
     private Button btnFalse;
-    private GifImageView imgFlags;
+    private ImageView imgFlags;
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
     private int index;
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         question = (TextView) findViewById(R.id.question);
         btnTrue = (Button) findViewById(R.id.btnTrue);
         btnFalse = (Button) findViewById(R.id.btnFalse);
-        imgFlags = (GifImageView) findViewById(R.id.imgFlag);
+        imgFlags = (ImageView) findViewById(R.id.imgFlag);
         scoreInGame = (TextView) findViewById(R.id.scoreInGame);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.getProgressDrawable().setColorFilter(Color.rgb(63, 81, 181), PorterDuff.Mode.SRC_IN); // Change colour of progressBar to match theme
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         question.setText("Questions loading...");
 
         // Sets initial country flag
-        imgFlags.setImageResource(R.drawable.loader);
+        imgFlags.setImageResource(R.drawable.spinner);
 
         // Variable declarations
         index = 0;
@@ -352,8 +352,9 @@ public class MainActivity extends AppCompatActivity {
             currentQuestion = questions.get(index);
             // Display current question to screen by changing text
             question.setText(currentQuestion.getQuestion());
-            // Using the Picasso library, display current image in imgFlags
-            // for question and use placeholder and error image during process when and if required
+            /* Using the Picasso library, display current image in imgFlags
+            for question and use placeholder and error image during process when and if required.
+            Please refer to 'loader.xml' for further information regarding the error flag for the following line */
             Picasso.with(this).load(currentQuestion.getPicture()).placeholder(R.drawable.loader).error(R.drawable.error).into(imgFlags);
             index++; // Add one to counter declared in onCreate
         }
@@ -497,22 +498,42 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                // Set up input for user to enter their name
                 name = input.getText().toString(); // Convert text value to string and store in name variable
 
-                // New high score and user name
-                HighScoreObject highScore = new HighScoreObject(score, name, new Date().getTime());
+                // If user enters no name, high score will not be saved
+                if (name.isEmpty()) { // Checks if input is empty
 
-                // Get user prefs
-                List<HighScoreObject> highScores = Paper.book().read("High scores", new ArrayList<HighScoreObject>());
+                    // Display message if no name is entered
+                    Toast.makeText(MainActivity.this, "Score not saved due to no name entered", Toast.LENGTH_LONG).show();
 
-                // Add item - scores
-                highScores.add(highScore);
+                    // Closes alert dialog screen
+                    dialog.cancel();
 
-                // Save again
-                Paper.book().write("High scores", highScores);
+                    // Return back to the introduction screen
+                    finish();
 
-                // Return back to the introduction screen
-                finish();
+                } else { // If input is not empty, execute following code
+
+                    // New high score and user name
+                    HighScoreObject highScore = new HighScoreObject(score, name, new Date().getTime());
+
+                    // Get user prefs
+                    List<HighScoreObject> highScores = Paper.book().read("High scores", new ArrayList<HighScoreObject>());
+
+                    // Add item - scores
+                    highScores.add(highScore);
+
+                    // Save again
+                    Paper.book().write("High scores", highScores);
+
+                    // Closes alert dialog screen
+                    dialog.cancel();
+
+                    // Return back to the introduction screen
+                    finish();
+                }
             }
         });
         // Sets up the Cancel button
